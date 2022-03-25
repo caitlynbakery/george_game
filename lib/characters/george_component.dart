@@ -1,13 +1,13 @@
 import 'package:flame/components.dart';
 import 'package:flame/geometry.dart';
 import 'package:flame/sprite.dart';
-import 'package:george/main.dart';
+import '../my_george_game.dart';
 
 class GeorgeComponent extends SpriteAnimationComponent
     with HasHitboxes, Collidable, HasGameRef{
       final MyGeorgeGame game;
   GeorgeComponent({required this.game}) {
-    addHitbox(HitboxRectangle(relation: Vector2.all(0.75)));
+    addHitbox(HitboxRectangle(relation: Vector2.all(0.65)));
   }
     late SpriteAnimation downAnimation;
   late SpriteAnimation leftAnimation;
@@ -50,25 +50,37 @@ class GeorgeComponent extends SpriteAnimationComponent
       case 1:
         animation = downAnimation;
         if (y < game.mapHeight - height) {
+          if(game.collisionDirection != 1){
           y += dt * game.characterSpeed;
+
+          }
         }
         break;
       case 2:
         animation = leftAnimation;
         if (x > 0) {
+          if(game.collisionDirection != 2){
           x -= dt * game.characterSpeed;
+
+          }
         }
         break;
       case 3:
         animation = upAnimation;
         if (y > 0) {
+          if(game.collisionDirection != 3){
           y -= dt * game.characterSpeed;
+
+          }
         }
         break;
       case 4:
      animation = rightAnimation;
         if (x < game.mapWidth - width) {
+          if(game.collisionDirection != 4){
           x += dt * game.characterSpeed;
+
+          }
         }
         break;
     }

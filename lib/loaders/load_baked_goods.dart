@@ -1,7 +1,7 @@
     import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:george/characters/baked_good_component.dart';
-import 'package:george/main.dart';
+import '../my_george_game.dart';
 
 void addBakedGoods(TiledComponent homeMap, MyGeorgeGame game) async{
     final bakedGoodsGroup = homeMap.tileMap.getObjectGroupFromLayer('BakedGoods');
