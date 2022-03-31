@@ -17,19 +17,26 @@ class FriendComponent extends PositionComponent with HasHitboxes, Collidable {
     
     var message = '';
     if (game.bakedGoodsInventory > 0) {
-      message = 'WOW! Thanks so much, please come over '
+      game.dialogMessage = 'WOW! Thanks so much, please come over '
           'this weekend for dinner. I have to run now. '
           'See you on Saturday!';
 
       game.friendNum++;
       game.bakedGoodsInventory--;
       game.friend.start(volume: 0.8);
-      game.overlays.notifyListeners();
+
+      if(game.maxFriends == game.friendNum){
+        game.sceneNumber++;
+        game.newScene();
+      }
     } else {
-      message = 'Great to meet you. I have to run to a meeting.';
+      game.dialogMessage = 'Great to meet you. I have to run to a meeting.';
     }
-    game.dialogBox = DialogBox(text: message, game: game);
-    game.add(game.dialogBox);
+    // game.dialogBox = DialogBox(text: message, game: game);
+    // game.add(game.dialogBox);
+    game.showDialog = true;
+          game.overlays.notifyListeners();
+
     remove(this);
     }
 

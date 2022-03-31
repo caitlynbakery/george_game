@@ -27,7 +27,7 @@ class ScoreOverlay extends StatelessWidget {
           color: const Color.fromARGB(167, 233, 233, 233),
           child: Text(
             '${game.friendNum}',
-            style: TextStyle(fontSize: 28, color: Colors.black54),
+            style: TextStyle(fontSize: 35, color: Colors.black54, fontFamily: 'vt323'),
           ),
         ),
         const SizedBox(
@@ -46,7 +46,7 @@ class ScoreOverlay extends StatelessWidget {
           color: const Color.fromARGB(167, 233, 233, 233),
           child: Text(
             '${game.bakedGoodsInventory}',
-            style: TextStyle(fontSize: 28, color: Colors.black54),
+            style: TextStyle(fontSize: 35, color: Colors.black54, fontFamily: 'vt323'),
           ),
         ),
       ],
